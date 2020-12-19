@@ -1,0 +1,22 @@
+{
+    "name": "Hints",
+    "description": "Cyclically display a hint from a list of hints on an interval to the whole server.",
+    "author": "x",
+    "config": {
+        "display-interval": {
+            "default": 60,
+            "description": "How often to display a hint, in seconds.",
+            "type": "number"
+        },
+        "prefix": {
+            "default": "<b>[HINT]</b>",
+            "description": "A prefix placed before all hints to display. If left blank, no prefix will be used.",
+            "type": "string"
+        },
+        "file": {
+            "default": "plugins/omegga-hints/hints.json",
+            "description": "The name of the file to read hints from. This is relative to your Omegga installation. Read the README from the GitHub page for more information on how this works.",
+            "type": "string"
+        }
+    }
+}
