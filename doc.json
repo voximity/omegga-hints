@@ -9,12 +9,12 @@
             "type": "number"
         },
         "prefix": {
-            "default": "<b>[HINT]</b>",
+            "default": "<b>[HINT]</>",
             "description": "A prefix placed before all hints to display. If left blank, no prefix will be used.",
             "type": "string"
         },
         "file": {
-            "default": "plugins/omegga-hints/hints.json",
+            "default": "plugins/omegga-hints/hints.txt",
             "description": "The name of the file to read hints from. This is relative to your Omegga installation. Read the README from the GitHub page for more information on how this works.",
             "type": "string"
         }

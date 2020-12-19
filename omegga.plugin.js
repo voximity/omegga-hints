@@ -19,7 +19,8 @@ class Hints {
     }
 
     async init() {
-        this.hints = JSON.parse(await fs.promises.readFile(this.config["hint-file"]));
+        const hintsSource = await fs.promises.readFile(this.config["file"]);
+        this.hints = hintsSource.toString().split("\n").map((h) => h.trim()).filter((h) => h != "");
         this.hintIndex = 0;
 
         this.interval = setInterval(() => this.displayHint(), this.config["display-interval"] * 1000);
