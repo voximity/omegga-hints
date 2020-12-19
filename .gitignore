@@ -1,0 +1,3 @@
+# If you're going to be contributing to omegga-hints, please make sure you're
+# not committing your hints file, whatever you named it. The default is below.
+hints.json
