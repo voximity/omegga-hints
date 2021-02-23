@@ -52,19 +52,21 @@ class Hints {
             } else if (command == "add") {
                 this.hints.push(args.join(" "));
                 await this.writeHints();
-                this.omegga.whisper("Added hint, totalling " + this.hints.length + " hints.")
+                this.omegga.whisper(sender, "Added hint, totalling " + this.hints.length + " hints.")
             } else if (command == "remove" || command == "delete") {
                 this.hints.splice(parseInt(args[0]) - 1, 1);
                 await this.writeHints();
-                this.omegga.whisper("Removed hint, totalling " + this.hints.length + " hints.");
+                this.omegga.whisper(sender, "Removed hint, totalling " + this.hints.length + " hints.");
             } else if (command == "reload") {
                 await this.reloadHints();
-                this.omegga.whisper("Reloaded hints, totalling " + this.hints.length + " hints.");
+                this.omegga.whisper(sender, "Reloaded hints, totalling " + this.hints.length + " hints.");
             } else if (command == "edit") {
                 const [index, ...contentUnjoined] = args;
                 this.hints[parseInt(index) - 1] = contentUnjoined.join(" ");
                 await this.writeHints();
-                this.omegga.whisper("Edited hint.");
+                this.omegga.whisper(sender, "Edited hint.");
+            } else {
+                this.omegga.whisper(sender, `Invalid command "${command}".`);
             }
         });
 
