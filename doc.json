@@ -3,6 +3,10 @@
     "description": "Cyclically display a hint from a list of hints on an interval to the whole server.",
     "author": "x",
     "config": {
+        "authorized": {
+            "description": "A list of players authorized to use hint modification commands.",
+            "type": "players"
+        },
         "display-interval": {
             "default": 60,
             "description": "How often to display a hint, in seconds.",
@@ -18,5 +22,38 @@
             "description": "The name of the file to read hints from. This is relative to your Omegga installation. Read the README from the GitHub page for more information on how this works.",
             "type": "string"
         }
-    }
+    },
+    "commands": [
+        {
+            "name": "/hints",
+            "description": "Display the currently active hints.",
+            "example": "/hints"
+        },
+        {
+            "name": "/hints add",
+            "description": "Add a hint to the list of hints.",
+            "example": "/hints add This is a new hint!",
+            "args": [{"name": "hint", "description": "Content of hint to add", "required": true}]
+        },
+        {
+            "name": "/hints remove",
+            "description": "Remove a hint by its index.",
+            "example": "/hints remove 1",
+            "args": [{"name": "index", "description": "Index of hint to remove", "required": true}]
+        },
+        {
+            "name": "/hints edit",
+            "description": "Edit a hint by its index, followed by its new content.",
+            "example": "/hints edit 1 This is the new hint content.",
+            "args": [
+                {"name": "index", "description": "Index of hint to edit", "required": true},
+                {"name": "content", "description": "New content of hint", "required": true}
+            ]
+        },
+        {
+            "name": "/hints reload",
+            "description": "Reload hints from the hints file.",
+            "example": "/hints reload"
+        }
+    ]
 }
