@@ -15,7 +15,7 @@ class Hints {
     async writeHints() {
         let finalContent = "";
         this.hints.forEach((h) => finalContent += h + "\n");
-        await fs.promises.writeFile(this.config["file"], fileContent.trim());
+        await fs.promises.writeFile(this.config["file"], finalContent.trim());
     }
 
     displayHint() {
@@ -54,7 +54,12 @@ class Hints {
                 await this.writeHints();
                 this.omegga.whisper(sender, "Added hint, totalling " + this.hints.length + " hints.")
             } else if (command == "remove" || command == "delete") {
-                this.hints.splice(parseInt(args[0]) - 1, 1);
+                const ind = parseInt(args[0]) - 1;
+                if (ind >= this.hints.length || ind < 0) {
+                    this.omegga.whisper(sender, "Invalid hint.");
+                    return;
+                }
+                this.hints.splice(ind, 1);
                 await this.writeHints();
                 this.omegga.whisper(sender, "Removed hint, totalling " + this.hints.length + " hints.");
             } else if (command == "reload") {
@@ -62,11 +67,16 @@ class Hints {
                 this.omegga.whisper(sender, "Reloaded hints, totalling " + this.hints.length + " hints.");
             } else if (command == "edit") {
                 const [index, ...contentUnjoined] = args;
-                this.hints[parseInt(index) - 1] = contentUnjoined.join(" ");
+                const ind = parseInt(index) - 1;
+                if (ind >= this.hints.length || ind < 0) {
+                    this.omegga.whisper(sender, "Invalid hint.");
+                    return;
+                }
+                this.hints[ind] = contentUnjoined.join(" ");
                 await this.writeHints();
                 this.omegga.whisper(sender, "Edited hint.");
             } else {
-                this.omegga.whisper(sender, `Invalid command "${command}".`);
+                this.omegga.whisper(sender, `Invalid command \"${command}\".`);
             }
         });
 
