@@ -41,7 +41,7 @@ class Hints {
 
         this.interval = setInterval(() => this.displayHint(), this.config["display-interval"] * 1000);
 
-        this.omegga.on("cmd:hints", (sender, command, ...args) => {
+        this.omegga.on("cmd:hints", async (sender, command, ...args) => {
             if (!isUserAuthed(sender)) return;
 
             if (command == "" || command == null) {
