@@ -5,7 +5,8 @@
     "config": {
         "authorized": {
             "description": "A list of players authorized to use hint modification commands.",
-            "type": "players"
+            "type": "players",
+            "default": []
         },
         "display-interval": {
             "default": 60,
