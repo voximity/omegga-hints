@@ -31,7 +31,7 @@ class Hints {
     }
 
     isUserAuthed(sender) {
-        return this.config.authorized.some((p) => p.name === sender);
+        return this.omegga.getPlayer(sender).isHost() || this.config.authorized.some((p) => p.name === sender);
     }
 
     async init() {
