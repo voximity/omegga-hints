@@ -19,7 +19,7 @@
             "type": "string"
         },
         "file": {
-            "default": "plugins/omegga-hints/hints.txt",
+            "default": "plugins/hints/hints.txt",
             "description": "The name of the file to read hints from. This is relative to your Omegga installation. Read the README from the GitHub page for more information on how this works.",
             "type": "string"
         }
