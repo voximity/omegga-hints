@@ -5,9 +5,7 @@ You can configure a list of messages to be sent on an interval.
 
 ## Installation
 
-`cd plugins`
-
-`git clone git://github.com/voximity/omegga-hints.git`
+`omegga install gh:voximity/hints` from server directory
 
 To set up a list of hints to be used, first choose what you would like to name your file of hints.
 By default, the plugin is configured to use the file `hints.txt` created in the plugin folder.
